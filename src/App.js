@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import Header from './components/header';
-import Collection from './components/Collection';
+import Main from './components/Main';
+import Header from './components/Header';
 import './App.css';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-       <Header />
-       <Collection />
-      </div>
-    );
+    return(
+    <div>
+    <h2>Museum Collection</h2>
+    <Header />
+    <Main />
+   
+    </div>)
   }
 }
 

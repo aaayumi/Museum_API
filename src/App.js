@@ -10,7 +10,6 @@ class App extends Component {
     <h2>Museum Collection</h2>
     <Header />
     <Main />
-   
     </div>)
   }
 }

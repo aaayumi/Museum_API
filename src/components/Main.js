@@ -8,9 +8,7 @@ const Main = () => (
 	<main>
 	 <Switch>
 	  <Route exact path='/' component={Home} />
-      <Route path='/Vincent' component={Collection} />
-       <Route path='/Vermer' component={Collection} />
-        <Route path='/Rembrandt' component={Collection} />
+      <Route path='/:artist' component={Collection} />
 	 </Switch>
 	</main>)
 		

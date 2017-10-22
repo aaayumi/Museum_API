@@ -1,8 +1,7 @@
 import React ,  { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-const name = "Rembrandt";
-const url = `https://www.rijksmuseum.nl/api/en/collection?key=6EN25Xlf&format=json&q=${name}`;
+const baseUrl = "https://www.rijksmuseum.nl/api/en/collection?key=6EN25Xlf&format=json&q=";
 
 export default class Collection extends Component {
 
@@ -11,43 +10,31 @@ super(props);
 this.state = {
 data : []
 }
-this.handleClick = this.handleClick.bind(this);
+}
+
+getCollection(artist) {
+	const url = `${baseUrl}${artist}`;
+	console.log(url);
+	fetch(url)
+	 .then(response => response.json())
+	 .then(json => {
+	 	this.setState({
+	 			data: json.artObjects
+	 		});
+	 });
 }
 componentDidMount(){
-console.log(url)
-fetch(url)
-.then(response => response.json())
-.then(json => {
-this.setState({
-data: json.artObjects
-});
-});
+// get artist value from :artist param 
+console.log(this.props.match.params.artist)
+this.getCollection(this.props.match.params.artist);
 }
 
-handleClick(event){
-let name;
-
-    if( event.target.className.includes('Vincent')){
-name = "Vincent"
-} else if ( event.target.className.includes('Vermer')) {
-name = "Vermer"
-} else {
-name = "Rembrandt"
+// get new data when the URL changes 
+componentWillReceiveProps(nextProps) {
+	if(nextProps.match.params.artist !== this.props.match.params.artist) {
+		this.getCollection(nextProps.match.params.artist);
+	}
 }
-   
-console.log(name);
-        const url = `https://www.rijksmuseum.nl/api/en/collection?key=6EN25Xlf&format=json&q=${name}`;
-        console.log(url)
-        fetch(url)
-            .then(response => response.json())
-            .then(json => {
-            console.log("goh" + json.artObjects)
-            this.setState({
-            data: json.artObjects
-            });
-        
-         });
-    }
 render(){
 
         // add state.data.length to prevent error when it's loaded first time.
@@ -61,14 +48,12 @@ titles = this.state.data.map(
 </div>
 )); 
 return <div>
-<button onClick={this.handleClick} className="Vincent">Vincent van Gogh</button>
-<button onClick={this.handleClick} className="Vermer">Vermer</button>
-<button onClick={this.handleClick} className="Rembrandt">Rembrandt</button>
+<h2>A collection of {this.props.match.params.artist}</h2>
 {titles}
 </div>
         }
-return(
-            <div>{titles}</div>
+return(	
+    <div>{titles}</div>
 );
 }
 }

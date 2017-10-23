@@ -9,7 +9,6 @@ class App extends Component {
   render() {
     return(
   <MuiThemeProvider>
-    <h1>RijksMuseum</h1>
     <Header />
     <Main />
   </MuiThemeProvider>)

@@ -1,17 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+const headerStyle = {
+	background: 'linear-gradient(45deg, #FFDD07  , #FF7B07   )',
+	paddingTop: 30,
+	height: 120
+}
+
+const headerLink = {
+	color : '#68BF21',
+	fontWeight : 600,
+	fontSize: 20
+}
+
 const Header = () => (
+	<div style={headerStyle}>
+	 <h1 style={{"marginLeft": "37px"}} >RijksMuseum</h1>
 	<header>
 	<nav>
 	<ul>
-	    <li ><Link to='/'>Home</Link></li>
-        <li className="Gogh"><Link to='/Gogh'>Vincent van Gogh</Link></li>
-        <li className="Vermer"><Link to='/Vermer'>Johannes Vermeer</Link></li>
-        <li className="Rembrandt"><Link to='/Rembrandt'>Rembranbt</Link></li>
+	    <li ><Link to='/' style={headerLink}>Home</Link></li>
+        <li style={headerLink}><Link to='/collection' style={headerLink}>Collection</Link></li>
       </ul>
     </nav>
   </header>
+  </div>
 	)
 
 export default Header;

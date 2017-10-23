@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
 body {
   background: #FFFFEB;
 }
+
 a {
   text-decoration : none;
   color : #7CD689;
@@ -29,4 +31,23 @@ h1, h2, h3, p {
 
 #root {
   margin-top: -30px;
+}
+
+/** Media Query **/
+
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+.eventItem {
+  width: 400px !important;
+  height: 450px !important;
+}
+
+.collectionTitle {
+  width: 400px !important;
+  }
+
+.artistItem {
+  width: 400px !important;
+  height: 150px !important;
+  font-size: 12px;
+}
 }

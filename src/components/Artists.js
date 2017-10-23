@@ -54,7 +54,7 @@ if (this.state.data.length) {
 titles = this.state.data.map(
          
 (obj) => (
-<Paper style={style} zDepth={2} >
+<Paper className="artistItem" style={style} zDepth={2} >
 <a href={obj.links.web}><h2>{obj.title}</h2></a>
 </Paper>
 )); 

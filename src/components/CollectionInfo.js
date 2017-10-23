@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const collectionStyle = {
-	 height: 200,
      margin: 'auto',
      textAlign: 'center'
 }
@@ -18,7 +17,7 @@ const item = {
 }
 
 const CollectionInfo = () => (
-	<div style={collectionStyle}>
+	<div className="collectionTitle" style={collectionStyle}>
 	<h2>Check out art works of famous artists  in RijksMuseum</h2>
 	<h3>Choose an artist</h3>
 

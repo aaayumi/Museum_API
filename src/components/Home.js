@@ -124,7 +124,7 @@ let events;
 if(this.state.event.length){
  events =  this.state.event.map(
  (obj)  => (
- 	<Paper style={style} zDepth={2} >
+ 	<Paper className="eventItem" style={style} zDepth={2} >
  	<a href={obj.links.web}><h2>{obj.exposition.name}</h2></a>
  	<p>{obj.exposition.description}</p>
  	<p>Price : {obj.exposition.price.amount}  Euro</p>

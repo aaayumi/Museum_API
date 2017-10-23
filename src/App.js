@@ -3,14 +3,16 @@ import Main from './components/Main';
 import Header from './components/Header';
 import './App.css';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 class App extends Component {
   render() {
     return(
-    <div>
-    <h2>Museum Collection</h2>
+  <MuiThemeProvider>
+    <h1>RijksMuseum</h1>
     <Header />
     <Main />
-    </div>)
+  </MuiThemeProvider>)
   }
 }
 

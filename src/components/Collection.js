@@ -1,5 +1,16 @@
 import React ,  { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Paper from 'material-ui/Paper';
+
+const style = {
+  height: 130,
+  width: 900,
+  margin: 'auto',
+  marginBottom : 20,
+  padding: 20,
+  textAlign: 'center'
+};
+
 
 const baseUrl = "https://www.rijksmuseum.nl/api/en/collection?key=6EN25Xlf&format=json&q=";
 
@@ -43,9 +54,9 @@ if (this.state.data.length) {
 titles = this.state.data.map(
          
 (obj) => (
-<div>
+<Paper style={style} zDepth={2} >
 <a href={obj.links.web}><h2>{obj.title}</h2></a>
-</div>
+</Paper>
 )); 
 return <div>
 <h2>A collection of {this.props.match.params.artist}</h2>
